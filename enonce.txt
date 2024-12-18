@@ -1,0 +1,173 @@
+Exercice 1 : Analyse des ventes
+ 
+Objectif : Écrire un programme PySpark pour analyser les ventes d’une entreprise à partir d’un fichier CSV.
+ 
+Jeu de données :
+Créez un fichier ventes.csv avec les colonnes suivantes :
+ 
+```
+Date,Produit,Quantité,Prix_unitaire
+2024-01-01,Ordinateur,2,800
+2024-01-01,Clavier,5,20
+2024-01-02,Souris,10,15
+2024-01-02,Ordinateur,1,800
+2024-01-03,Clavier,3,20
+```
+ 
+Instructions :
+	1.	Chargez le fichier CSV dans PySpark.
+	2.	Calculez le chiffre d’affaires (Quantité × Prix_unitaire) pour chaque ligne.
+	3.	Calculez le chiffre d’affaires total.
+	4.	Trouvez le produit le plus vendu (en termes de Quantité).
+ 
+Résultat attendu (approximatif) :
+	•	Chiffre d’affaires total : 2 995 €
+	•	Produit le plus vendu : Souris (10 unités)
+ 
+ 
+Exercice 2 : Analyse des utilisateurs
+ 
+Objectif : Analyser un fichier JSON contenant des données d’utilisateurs pour extraire des statistiques.
+ 
+Jeu de données :
+Créez un fichier utilisateurs.json avec le contenu suivant :
+ 
+```
+[
+  {"id": 1, "nom": "Alice", "âge": 25, "ville": "Paris"},
+  {"id": 2, "nom": "Bob", "âge": 30, "ville": "Lyon"},
+  {"id": 3, "nom": "Claire", "âge": 35, "ville": "Paris"},
+  {"id": 4, "nom": "David", "âge": 40, "ville": "Marseille"},
+  {"id": 5, "nom": "Emma", "âge": 22, "ville": "Lyon"}
+]
+```
+ 
+Instructions :
+	1.	Chargez le fichier JSON dans PySpark.
+	2.	Calculez l’âge moyen des utilisateurs.
+	3.	Comptez combien d’utilisateurs habitent dans chaque ville.
+	4.	Trouvez le plus jeune utilisateur.
+ 
+Résultat attendu (approximatif) :
+	•	Âge moyen : 30,4 ans
+	•	Nombre d’utilisateurs par ville :
+	•	Paris : 2
+	•	Lyon : 2
+	•	Marseille : 1
+	•	Plus jeune utilisateur : Emma (22 ans)
+ 
+  Exercice 3 : Nettoyage de données
+ 
+Objectif : Nettoyer un jeu de données contenant des valeurs manquantes et des erreurs.
+ 
+Jeu de données :
+Créez un fichier CSV clients.csv :
+ 
+```
+Nom,Âge,Ville,Revenu
+Alice,25,Paris,50000
+Bob,,Lyon,40000
+Claire,35,Marseille,35000
+David,40,,45000
+Emma,22,Lyon,
+```
+ 
+Instructions :
+	1.	Chargez le fichier CSV dans PySpark.
+	2.	Remplissez les valeurs manquantes pour l’âge avec la moyenne des âges.
+	3.	Remplissez les valeurs manquantes pour la ville avec “Inconnue”.
+	4.	Supprimez les lignes où le revenu est manquant.
+	5.	Affichez le DataFrame nettoyé.
+ 
+Résultat attendu :
+ 
+```
+Nom     Âge     Ville       Revenu
+Alice   25.0    Paris       50000
+Bob     30.5    Lyon        40000
+Claire  35.0    Marseille   35000
+David   40.0    Inconnue    45000
+```
+ 
+Exercice 4 : Produits les plus chers
+ 
+Objectif : Trouver les 3 produits les plus chers dans un catalogue.
+ 
+Jeu de données :
+Créez un fichier produits.csv :
+ 
+```
+Produit,Catégorie,Prix
+Ordinateur,Électronique,800
+Clavier,Électronique,20
+Souris,Électronique,15
+Table,Bureau,150
+Chaise,Bureau,80
+Imprimante,Électronique,120
+```
+ 
+Instructions :
+	1.	Chargez le fichier CSV dans PySpark.
+	2.	Identifiez les 3 produits les plus chers.
+	3.	Affichez le résultat sous forme de DataFrame.
+ 
+Résultat attendu :
+ 
+```
+Produit        Catégorie        Prix
+Ordinateur     Électronique     800
+Table          Bureau           150
+Imprimante     Électronique     120
+```
+ 
+Exercice 5 : Analyse des transactions
+ 
+Objectif : Analyser des transactions pour identifier les clients ayant dépensé le plus.
+ 
+Jeu de données :
+Créez un fichier transactions.csv :
+ 
+```
+Client,Date,Montant
+Alice,2024-01-01,150
+Bob,2024-01-02,200
+Alice,2024-01-03,100
+Emma,2024-01-04,300
+David,2024-01-05,250
+Emma,2024-01-06,50
+```
+ 
+Instructions :
+	1.	Chargez le fichier CSV dans PySpark.
+	2.	Calculez les dépenses totales de chaque client.
+	3.	Identifiez le client ayant dépensé le plus.
+ 
+Résultat attendu :
+ 
+```
+Client  Dépenses_totales
+Emma    350
+David   250
+Bob     200
+Alice   250
+```
+ 
+Exercice 6 : Agrégation de données par catégorie
+ 
+Objectif : Calculer des statistiques pour des produits regroupés par catégorie.
+ 
+Jeu de données :
+Réutilisez le fichier produits.csv de l’exercice 4.
+ 
+Instructions :
+	1.	Chargez le fichier CSV dans PySpark.
+	2.	Calculez le prix moyen et le prix total par catégorie.
+	3.	Affichez les résultats dans un DataFrame.
+ 
+Résultat attendu :
+ 
+```
+Catégorie        Prix_moyen    Prix_total
+Électronique     238.75        955
+Bureau           115.0         230
+```
